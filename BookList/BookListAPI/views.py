@@ -13,10 +13,12 @@ from rest_framework import generics
 # Imports the generics module from the Django REST framework,
 from .serializers import BookSerializer
 # Imports the BookSerializer class from the serializers.py file in the current app,
+from rest_framework.decorators import api_view
+# Imports the api_view decorator from the Django REST framework,
 
 
 @csrf_exempt
-def books(request): # The request parameter contains all the HTTP request data.
+def books(request):
     if request.method == 'GET':
         books = Book.objects.all().values()
         return JsonResponse({"books":list(books)})
@@ -37,12 +39,12 @@ def books(request): # The request parameter contains all the HTTP request data.
         return JsonResponse(model_to_dict(book), status=201)
     
 
-
+# The request parameter contains all the HTTP request data.
 # The books view function handles GET and POST requests to the /api/books endpoint.
 # request.method-Accesses the HTTP method used in the request.
 # GET requests return a JSON response with all books in the database.
 # POST requests create a new book record based on the provided data.
-
+ 
 # request.method == 'GET'-Checks if the request method is GET.
 # all()-Queries the database to retrieve all records in the Book table.
 # values()- Returns a QuerySet that returns dictionaries instead of model instances.
@@ -69,7 +71,22 @@ class BookView(generics.ListCreateAPIView):
     queryset=Book.objects.all()
     serializer_class=BookSerializer 
 
+# The BookView class is a generic view that handles GET and POST requests to the /api/books endpoint.
+# The ListCreateAPIView class provides the basic behavior for listing and creating objects.
+# queryset-Defines the queryset used to retrieve objects from the database.
+# serializer_class-Defines the serializer class used to serialize and deserialize objects.
+# The BookSerializer class is used to serialize and deserialize Book objects.
+# The view inherits from ListCreateAPIView, which provides the necessary functionality for listing and creating objects.
+
 
 class SingleBookView(generics.RetrieveUpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+# The SingleBookView class is a generic view that handles GET, PUT, and DELETE requests for a single book.
+# The RetrieveUpdateAPIView class provides the basic behavior for retrieving, updating, and deleting objects.
+# queryset-Defines the queryset used to retrieve objects from the database.
+# serializer_class-Defines the serializer class used to serialize and deserialize objects.
+# The view inherits from RetrieveUpdateAPIView, which provides the necessary functionality for retrieving, updating, and deleting objects.
+# The view retrieves, updates, or deletes a single book object based on the primary key (pk) provided in the URL.
+
