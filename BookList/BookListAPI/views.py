@@ -9,6 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from django.shortcuts import render 
 # helper functions for rendering templates
+from rest_framework import generics
+# Imports the generics module from the Django REST framework,
+from .serializers import BookSerializer
+# Imports the BookSerializer class from the serializers.py file in the current app,
 
 
 @csrf_exempt
@@ -60,3 +64,12 @@ def books(request): # The request parameter contains all the HTTP request data.
 # Converts the Book object into a dictionary for JSON serialization.
 # Includes all fields and their values.
 
+
+class BookView(generics.ListCreateAPIView):
+    queryset=Book.objects.all()
+    serializer_class=BookSerializer 
+
+
+class SingleBookView(generics.RetrieveUpdateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
