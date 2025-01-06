@@ -90,3 +90,4 @@ class SingleBookView(generics.RetrieveUpdateAPIView):
 # The view inherits from RetrieveUpdateAPIView, which provides the necessary functionality for retrieving, updating, and deleting objects.
 # The view retrieves, updates, or deletes a single book object based on the primary key (pk) provided in the URL.
 
+
