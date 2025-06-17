@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "4b(@jqrtp0l%m$6-5ic++opj7wmq=kauw5%pdt2a88yu$$(s0m"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]  # or use your Railway domain
 
 
 # Application definition
@@ -79,11 +81,14 @@ WSGI_APPLICATION = "LittleLemon.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join("/data", "db.sqlite3"),  # Writable location on Render
-    }
+    "default": dj_database_url.config(
+        default="postgresql://postgres:brepbQYWybRhluMeVygZZGuyFlOMTZeQ@turntable.proxy.rlwy.net:35610/railway"
+    )
 }
+
+
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # Password validation
@@ -156,8 +161,3 @@ REST_FRAMEWORK = {
 }
 
 DJOSER = {"USER_ID_FIELD": "username"}
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

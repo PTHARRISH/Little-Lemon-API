@@ -16,6 +16,30 @@
         ]
     },
     "default": {
+        "gunicorn": {
+            "hashes": [
+                "sha256:3e214356580a56f11c914eb6d0b1a898f1308c370eb88b6c2be356b881862faa",
+                "sha256:7f10fe8e440bda77e29a7ed315a1ae76ef5ffb1872e289bbbd48b8fce694a3ff"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==21.2.0"
+        },
+        "dj-database-url": {
+            "hashes": [
+                "sha256:b6f400a110f63710fc07eb22d3434a0895e2de6b9a58cf7bcab9b9499e0c8b97",
+                "sha256:c4a759674178303ea03a1491fbcfbb70c6d5c32529bdf5ac0090b520b0ecf3f5"
+            ],
+            "version": "==1.3.0"
+        },
+        "psycopg2-binary": {
+            "hashes": [
+                "sha256:53faed6c9b1988d3cddf17aeb2fe7e2d72a719eb3b4790eb82a3cd617e42a86a",
+                "sha256:f49048d3c3d6ed89bd6fc6a8fc69a5b7b86ea0bc3ef69e738d57c0546d045653"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==2.9.9"
+        },
+
         "asgiref": {
             "hashes": [
                 "sha256:71e68008da809b957b7ee4b43dbccff33d1b23519fb8344e33f049897077afac",

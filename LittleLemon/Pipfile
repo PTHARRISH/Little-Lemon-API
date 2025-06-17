@@ -8,6 +8,9 @@ django = "*"
 djangorestframework = "*"
 django-filter = "*"
 djoser = "*"
+gunicorn = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
