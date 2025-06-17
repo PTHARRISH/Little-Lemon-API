@@ -1,8 +1,21 @@
+[build]
+base = "python"
+
 [phases.setup]
-nixPkgs = ["python311", "python311Packages.pip"]
+nixPkgs = [
+  "python311",
+  "python311Packages.django_4_2",
+  "python311Packages.django-filter",
+  "python311Packages.djangorestframework",
+  "python311Packages.gunicorn",
+  "python311Packages.psycopg2"
+]
 
 [phases.install]
-cmds = ["pip install -r LittleLemon/requirements.txt"]
+cmds = [
+  "pip install djoser dj-database-url"
+]
 
 [start]
 cmd = "python LittleLemon/manage.py runserver 0.0.0.0:8000"
+

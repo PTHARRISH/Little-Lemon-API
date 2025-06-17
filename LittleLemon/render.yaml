@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: littlelemon-api
-    env: docker
-    plan: free
-    branch: main
-    dockerfilePath: ./Dockerfile
-    # No rootDir needed if it's at repo root
