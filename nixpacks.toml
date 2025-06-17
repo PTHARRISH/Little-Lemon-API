@@ -9,11 +9,15 @@ nixPkgs = [
   "python311Packages.djangorestframework",
   "python311Packages.gunicorn",
   "python311Packages.psycopg2"
+  "python311Packages.pip",
+  "python311Packages.setuptools",
+  "python311Packages.wheel"
 ]
 
 [phases.install]
 cmds = [
-  "pip install djoser dj-database-url"
+  "python -m venv venv",
+  "./venv/bin/pip install -r LittleLemon/requirements.txt"
 ]
 
 [start]
