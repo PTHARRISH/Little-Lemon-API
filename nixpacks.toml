@@ -17,7 +17,7 @@ nixPkgs = [
 [phases.install]
 cmds = [
   "python -m venv venv",
-  "./venv/bin/pip install -r LittleLemon/requirements.txt"
+  "./venv/bin/pip install -r LittleLemon/requirements.txt",
   "./venv/bin/python LittleLemon/manage.py migrate",
   "./venv/bin/python LittleLemon/manage.py collectstatic --noinput",
   "./venv/bin/python LittleLemon/manage.py create_superuser"
