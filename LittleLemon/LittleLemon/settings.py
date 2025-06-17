@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "4b(@jqrtp0l%m$6-5ic++opj7wmq=kauw5%pdt2a88yu$$(s0m"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]  # or use your Railway domain
 
