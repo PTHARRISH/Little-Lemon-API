@@ -10,7 +10,7 @@ RUN pip install pipenv && pipenv install --system
 
 COPY . /app/
 
-# Optional: collect static files (you can remove if not needed)
+# Optional for static files
 RUN python LittleLemon/manage.py collectstatic --noinput || true
 
 EXPOSE 8000

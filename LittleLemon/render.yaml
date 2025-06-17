@@ -5,5 +5,4 @@ services:
     plan: free
     branch: main
     dockerfilePath: ./Dockerfile
-    rootDir: Coursera/LittleLemon
-    healthCheckPath: /
+    # No rootDir needed if it's at repo root
