@@ -129,6 +129,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+CSRF_TRUSTED_ORIGINS = ["https://littlelemonapi.up.railway.app"]
+
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
