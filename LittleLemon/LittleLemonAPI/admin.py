@@ -1,8 +1,29 @@
 from django.contrib import admin
-from . import models
-# Register your models here.
-admin.site.register(models.MenuItem)
-admin.site.register(models.Category)
-admin.site.register(models.Cart)
-admin.site.register(models.Order)
-admin.site.register(models.OrderItem)
+from import_export.admin import ImportExportModelAdmin
+
+from .models import Cart, Category, MenuItem, Order, OrderItem
+
+
+@admin.register(MenuItem)
+class MenuItemAdmin(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Category)
+class CategoryAdmin(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Cart)
+class CartAdmin(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Order)
+class OrderAdmin(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(OrderItem)
+class OrderItemAdmin(ImportExportModelAdmin):
+    pass
