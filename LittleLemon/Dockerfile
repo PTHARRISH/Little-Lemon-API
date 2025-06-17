@@ -25,10 +25,10 @@ RUN pip install --upgrade pip pipenv && pipenv install --system --deploy --ignor
 COPY . /app/
 
 # Collect static files (optional but recommended for Django)
-RUN python LittleLemon/manage.py collectstatic --noinput || true
+RUN python manage.py collectstatic --noinput || true
 
 # Expose the port Gunicorn will run on
 EXPOSE 8000
 
 # Start the Gunicorn server
-CMD ["gunicorn", "LittleLemon.wsgi:application", "--chdir", "LittleLemon", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "LittleLemon.wsgi:application", "--bind", "0.0.0.0:8000"]
