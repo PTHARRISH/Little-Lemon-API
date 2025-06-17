@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: littlelemon-api
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    rootDir: Coursera/LittleLemon
+    healthCheckPath: /
